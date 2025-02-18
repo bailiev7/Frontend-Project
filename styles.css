@@ -63,6 +63,12 @@ body {
   animation: fadeIn 3s ease-in-out
 }
 
+.hero-subtitle1 {
+  font-size: 40px;
+  font-weight: bold;
+  animation: fadeIn 5s ease-in-out
+}
+
 .hero-description{
   font-size: 25px;
   position: relative;
