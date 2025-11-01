@@ -3,49 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="author" content="Bailiev Allanazar">
-    <title>Business Card</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles1.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bailiev Allanazar | Neon Portfolio</title>
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 50%, #070018, #000);
+            text-align: center;
+        }
+
+        canvas#bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -2;
+            width: 100%;
+            height: 100%;
+        }
+
+        .cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,0,255,0.3), rgba(0,255,255,0));
+            pointer-events: none;
+            filter: blur(40px);
+            transform: translate(-50%, -50%);
+            transition: all 0.1s linear;
+            z-index: -1;
+        }
+
+        header h1 {
+            font-size: clamp(2.5rem, 9vw, 5rem);
+            color: #0ff;
+            text-shadow: 0 0 25px #0ff, 0 0 55px #0ff;
+            font-weight: 900;
+            letter-spacing: 3px;
+            animation: flicker 2s infinite alternate;
+        }
+
+        header h1 span {
+            color: #ff00ff;
+            text-shadow: 0 0 25px #ff00ff, 0 0 60px #ff00ff;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; text-shadow: 0 0 15px #0ff, 0 0 40px #0ff; }
+        }
+
+        .hero-container {
+            max-width: 900px;
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 0 60px rgba(0,255,255,0.25);
+            backdrop-filter: blur(12px);
+            animation: fadeIn 1.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .hero-subtitle {
+            color: #0ff;
+            text-shadow: 0 0 15px #0ff;
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            margin-top: 0.7rem;
+        }
+
+        .hero-subtitle1 {
+            margin-top: 0.6rem;
+            font-weight: 700;
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            color: #fff;
+            text-shadow: 0 0 20px #ff00ff;
+        }
+
+        .hero-description {
+            margin: 2rem auto 2.5rem;
+            max-width: 650px;
+            color: #cfcfcf;
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            line-height: 1.8;
+            animation: glowText 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glowText {
+            from { text-shadow: 0 0 10px #0ff; }
+            to { text-shadow: 0 0 30px #ff00ff; }
+        }
+
+        .hero-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .hero-link {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 2px solid transparent;
+            color: #0ff;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0,255,255,0.3);
+        }
+
+        .hero-link:hover {
+            color: #ff00ff;
+            border-color: #ff00ff;
+            transform: scale(1.25) rotate(5deg);
+            box-shadow: 0 0 35px #ff00ff;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: #bbb;
+            text-shadow: 0 0 10px #0ff;
+        }
+
+        @media (max-width: 768px) {
+            .hero-container { padding: 2rem; }
+            .hero-link { width: 55px; height: 55px; font-size: 1.5rem; }
+        }
+    </style>
 </head>
+
 <body>
-    <header class="header">
-        <h1><span>I</span>M<span>POSSIBLE</span></h1>
-    </header>
-    <main>
-        <section class="hero">
-            <div class="container hero-container">
-                <div class="hero-about">
-                    <h2 class="hero-subtitle">
-                        Python Developer<br>
-                        <h3 class="hero-subtitle1">Bailiev Allanazar </h3>    
-                    </h2>
-                    <p class="hero-description anim-typewriter">
-                        Hi there, I'm a future backend developer and entrepreneur.<br>
-                        Currently, I'm learning to create my own website.<br>
-                        Reach out for collaboration.
-                    </p>
-                    <div class="hero-links">
-                        <a class="hero-link" href="https://t.me/bailiev" aria-label="Telegram">
-                            <i class='bx bxl-telegram'></i>
-                        </a>
-                        <a class="hero-link" href="https://github.com/bailiev7" aria-label="Instagram">
-                            <i class='bx bxl-github'></i>
-                        </a>
-                        <a class="hero-link" href="https://mail.google.com/mail/u/0/?fs=1&tf=cm&to=a.baylyyew05@gmail.com&subject=MISSED+CALL+EZTRADER&body=Your message..." aria-label="Gmail">
-                            <i class='bx bxl-gmail'></i>
-                        </a>
-                        <a class="hero-link" href="https://wa.me/+79299340669?text=Привет!" aria-label="WhatsApp">
-                            <i class='bx bxl-whatsapp'></i>
-                        </a>
-                    </div>
-                    <p class="footer-note">
-                        "Stay hungry, stay foolish." <br>
-                        &copy; Steve Jobs
-                    </p>
-                </div>
-            </div>
-        </section>
+    <canvas id="bg"></canvas>
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <main class="hero-container">
+        <header>
+            <h1><span>I</span>M<span>POSSIBLE</span></h1>
+        </header>
+
+        <h2 class="hero-subtitle">Creative Python Developer</h2>
+        <h3 class="hero-subtitle1">Bailiev Allanazar</h3>
+
+        <p class="hero-description">
+            ⚡ Passionate about clean backend logic and creative digital experiences.<br>
+            🚀 Exploring web innovations, automation, and entrepreneurial tech ideas.<br>
+            💬 Let’s build something legendary together.
+        </p>
+
+        <div class="hero-links">
+            <a class="hero-link" href="https://t.me/bailiev" aria-label="Telegram"><i class='bx bxl-telegram'></i></a>
+            <a class="hero-link" href="https://github.com/bailiev7" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+            <a class="hero-link" href="mailto:a.baylyyew05@gmail.com" aria-label="Gmail"><i class='bx bxl-gmail'></i></a>
+            <a class="hero-link" href="https://wa.me/+79299340669?text=Привет!" aria-label="WhatsApp"><i class='bx bxl-whatsapp'></i></a>
+        </div>
+
+        <p class="footer-note">
+            “Stay hungry, stay foolish” — <b>Steve Jobs</b>
+        </p>
     </main>
+
+    <script>
+        // === Neon Particle Background ===
+        const canvas = document.getElementById('bg');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+        const particles = [];
+
+        function rand(min, max){ return Math.random() * (max - min) + min; }
+
+        for (let i = 0; i < 120; i++) {
+            particles.push({
+                x: rand(0, width),
+                y: rand(0, height),
+                r: rand(1, 3),
+                dx: rand(-0.5, 0.5),
+                dy: rand(-0.5, 0.5),
+                color: Math.random() > 0.5 ? '#0ff' : '#ff00ff'
+            });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.shadowBlur = 20;
+                ctx.shadowColor = p.color;
+                ctx.fillStyle = p.color;
+                ctx.fill();
+                p.x += p.dx;
+                p.y += p.dy;
+                if (p.x < 0 || p.x > width) p.dx *= -1;
+                if (p.y < 0 || p.y > height) p.dy *= -1;
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        // === Reactive Neon Cursor Glow ===
+        const cursorGlow = document.getElementById('cursorGlow');
+        document.addEventListener('mousemove', e => {
+            cursorGlow.style.left = `${e.clientX}px`;
+            cursorGlow.style.top = `${e.clientY}px`;
+        });
+    </script>
 </body>
 </html>
